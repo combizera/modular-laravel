@@ -14,3 +14,6 @@
     - Shipping Model
     - Processes Shipments
 ```
+
+## Little Tips
+- In Modular Architecture, is common to use a PascalCase, like `Modules\Order\Database\Migrations`
