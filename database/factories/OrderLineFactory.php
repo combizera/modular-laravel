@@ -3,9 +3,10 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\Order\Models\OrderLine;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\OrderLine>
+ * @extends Factory<OrderLine>
  */
 class OrderLineFactory extends Factory
 {

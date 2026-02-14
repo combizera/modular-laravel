@@ -3,9 +3,10 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\Shipment\Models\Shipment;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Shipment>
+ * @extends Factory<Shipment>
  */
 class ShipmentFactory extends Factory
 {
