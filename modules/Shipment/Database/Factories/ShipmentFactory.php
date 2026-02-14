@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories;
+namespace Modules\Shipment\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Shipment\Models\Shipment;
@@ -10,15 +10,17 @@ use Modules\Shipment\Models\Shipment;
  */
 class ShipmentFactory extends Factory
 {
+    protected $model = Shipment::class;
+
     /**
-     * Define the model's default state.
-     *
      * @return array<string, mixed>
      */
     public function definition(): array
     {
         return [
-            //
+            'order_id' => $this->faker->numberBetween(1, 100),
+            'provider_shipment_id' => $this->faker->uuid(),
+            'provider' => $this->faker->randomElement(['DHL', 'FedEx', 'UPS']),
         ];
     }
 }

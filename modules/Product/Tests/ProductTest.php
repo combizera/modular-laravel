@@ -3,7 +3,7 @@
 use Modules\Product\Models\Product;
 
 it('should be able to list a product', function () {
-    $product = new Product();
+    $product = Product::factory()->create();
 
-    $this->assertTrue(true);
+    expect($product->name)->toBeString();
 });

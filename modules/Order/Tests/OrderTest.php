@@ -3,7 +3,7 @@
 use Modules\Order\Models\Order;
 
 it('should be able to list a order', function () {
-    $order = new Order();
+    $order = Order::factory()->create();
 
-    $this->assertTrue(true);
+    expect($order->status)->toBeString();
 });

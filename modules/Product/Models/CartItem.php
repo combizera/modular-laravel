@@ -2,9 +2,9 @@
 
 namespace Modules\Product\Models;
 
-use Database\Factories\CartItemFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Product\Database\Factories\CartItemFactory;
 
 class CartItem extends Model
 {
@@ -19,8 +19,13 @@ class CartItem extends Model
     ];
 
     protected $casts = [
-        'quantity' => 'integer',
-        'user_id' => 'integer',
-        'product_id' => 'integer',
+        'user_id'       => 'integer',
+        'product_id'    => 'integer',
+        'quantity'      => 'integer',
     ];
+
+    protected static function newFactory(): CartItemFactory
+    {
+        return new CartItemFactory();
+    }
 }

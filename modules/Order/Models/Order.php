@@ -2,9 +2,9 @@
 
 namespace Modules\Order\Models;
 
-use Database\Factories\OrderFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Order\Database\Factories\OrderFactory;
 
 class Order extends Model
 {
@@ -23,4 +23,9 @@ class Order extends Model
         'user_id' => 'integer',
         'total_in_cents' => 'integer',
     ];
+
+    protected static function newFactory(): OrderFactory
+    {
+        return new OrderFactory();
+    }
 }
