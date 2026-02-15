@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Modules\Order\Database\Factories\OrderFactory;
-use Modules\Payment\PayBuddy;
+use Modules\Payment\Models\Payment;
 
 class Order extends Model
 {
@@ -44,7 +44,7 @@ class Order extends Model
 
     public function payments(): HasMany
     {
-        return $this->hasMany(PayBuddy::class);
+        return $this->hasMany(Payment::class);
     }
 
     public function lastPayment(): HasOne

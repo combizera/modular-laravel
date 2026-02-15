@@ -10,7 +10,7 @@ use Modules\Payment\PayBuddy;
 use Modules\Product\CartItemCollection;
 use Modules\Product\Warehouse\ProductStockManager;
 
-class PurchaseItems
+class CreateOrder
 {
     public function __construct(
         protected ProductStockManager $productStockManager,
