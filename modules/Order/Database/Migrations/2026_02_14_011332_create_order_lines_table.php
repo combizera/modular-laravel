@@ -13,7 +13,7 @@ return new class extends Migration
         Schema::create('order_lines', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Order::class);
-            $table->foreignIdFor(Product::class);
+            $table->foreignId('product_id');
             $table->unsignedInteger('product_price_in_cents');
             $table->unsignedInteger('quantity');
             $table->timestamps();
