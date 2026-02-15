@@ -49,6 +49,9 @@ namespace Modules\Order\Models{
  * @property string $payment_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Order\Models\OrderLine> $lines
+ * @property-read int|null $lines_count
+ * @property-read \App\Models\User|null $user
  * @method static \Modules\Order\Database\Factories\OrderFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Order newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Order newQuery()
@@ -87,28 +90,6 @@ namespace Modules\Order\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|OrderLine whereUpdatedAt($value)
  */
 	class OrderLine extends \Eloquent {}
-}
-
-namespace Modules\Product\Models{
-/**
- * @property int $id
- * @property int $user_id
- * @property int $product_id
- * @property int $quantity
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Modules\Product\Database\Factories\CartItemFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder<static>|CartItem newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|CartItem newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|CartItem query()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|CartItem whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|CartItem whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|CartItem whereProductId($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|CartItem whereQuantity($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|CartItem whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|CartItem whereUserId($value)
- */
-	class CartItem extends \Eloquent {}
 }
 
 namespace Modules\Product\Models{
