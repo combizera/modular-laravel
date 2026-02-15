@@ -14,13 +14,12 @@ class CheckoutController
     {
         $products = collect($request->input('products'))->map(function (array $productDetails) {
             return [
-                'product'   => Product::find($productDetails['id']),
-                'quantity'  => $productDetails['quantity']
+                'product' => Product::find($productDetails['id']),
+                'quantity' => $productDetails['quantity'],
             ];
         });
 
-        $orderTotalInCents = $products->sum(fn(array $productDetails) =>
-            $productDetails['quantity'] * $productDetails['product']->price_in_cents
+        $orderTotalInCents = $products->sum(fn (array $productDetails) => $productDetails['quantity'] * $productDetails['product']->price_in_cents
         );
 
         $payBuddy = PayBuddy::make();
@@ -33,7 +32,7 @@ class CheckoutController
             );
         } catch (\RuntimeException) {
             throw ValidationException::withMessages([
-                'payment_token' => 'We could not complete your payment.'
+                'payment_token' => 'We could not complete your payment.',
             ]);
         }
 
@@ -42,7 +41,7 @@ class CheckoutController
             'status' => 'paid',
             'payment_gateway' => 'PayBuddy',
             'total_in_cents' => $orderTotalInCents,
-            'user_id' => $request->user()->id
+            'user_id' => $request->user()->id,
         ]);
 
         foreach ($products as $product) {
@@ -51,7 +50,7 @@ class CheckoutController
             $order->lines()->create([
                 'product_id' => $product['product']->id,
                 'product_price_in_cents' => $product['product']->price_in_cents,
-                'quantity' => $product['quantity']
+                'quantity' => $product['quantity'],
             ]);
         }
 

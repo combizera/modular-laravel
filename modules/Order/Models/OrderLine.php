@@ -27,6 +27,6 @@ class OrderLine extends Model
 
     protected static function newFactory(): OrderLineFactory
     {
-        return new OrderLineFactory();
+        return new OrderLineFactory;
     }
 }

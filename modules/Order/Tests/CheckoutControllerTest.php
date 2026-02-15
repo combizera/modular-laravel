@@ -12,14 +12,14 @@ it('should be able to sucessfull create a order', function () {
     $products = ProductFactory::new()->count(2)->create(
         new Sequence(
             [
-                'name'              => 'Very expensive air fryer',
-                'price_in_cents'    => 10000,
-                'stock'             => 10
+                'name' => 'Very expensive air fryer',
+                'price_in_cents' => 10000,
+                'stock' => 10,
             ],
             [
-                'name'              => 'Macbook Pro M3',
-                'price_in_cents'    => 50000,
-                'stock'             => 10
+                'name' => 'Macbook Pro M3',
+                'price_in_cents' => 50000,
+                'stock' => 10,
             ]
         )
     );
@@ -31,8 +31,8 @@ it('should be able to sucessfull create a order', function () {
             'payment_token' => $paymentToken,
             'products' => [
                 ['id' => $products->first()->id, 'quantity' => 1],
-                ['id' => $products->last()->id, 'quantity' => 1]
-            ]
+                ['id' => $products->last()->id, 'quantity' => 1],
+            ],
         ]));
 
     $response->assertStatus(201);
@@ -72,8 +72,8 @@ it('should not be able to create a order with invalid payment token', function (
         ->postJson(route('orders.checkout', [
             'payment_token' => $paymentToken,
             'products' => [
-                ['id' => $product->id, 'quantity' => 1]
-            ]
+                ['id' => $product->id, 'quantity' => 1],
+            ],
         ]));
 
     $response->assertStatus(422)

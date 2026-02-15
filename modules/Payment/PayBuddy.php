@@ -25,7 +25,7 @@ final class PayBuddy
 
     public static function make(): PayBuddy
     {
-        return new self();
+        return new self;
     }
 
     public static function validToken(): string

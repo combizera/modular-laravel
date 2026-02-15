@@ -11,7 +11,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class );
+            $table->foreignIdFor(User::class);
             $table->unsignedInteger('total_in_cents');
             $table->string('status');
             $table->string('payment_gateway');

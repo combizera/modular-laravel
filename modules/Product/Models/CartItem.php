@@ -11,7 +11,6 @@ class CartItem extends Model
     /** @use HasFactory<CartItemFactory> */
     use HasFactory;
 
-
     protected $fillable = [
         'quantity',
         'user_id',
@@ -19,13 +18,13 @@ class CartItem extends Model
     ];
 
     protected $casts = [
-        'user_id'       => 'integer',
-        'product_id'    => 'integer',
-        'quantity'      => 'integer',
+        'user_id' => 'integer',
+        'product_id' => 'integer',
+        'quantity' => 'integer',
     ];
 
     protected static function newFactory(): CartItemFactory
     {
-        return new CartItemFactory();
+        return new CartItemFactory;
     }
 }

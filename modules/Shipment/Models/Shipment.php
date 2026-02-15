@@ -19,6 +19,6 @@ class Shipment extends Model
 
     protected static function newFactory(): ShipmentFactory
     {
-        return new ShipmentFactory();
+        return new ShipmentFactory;
     }
 }

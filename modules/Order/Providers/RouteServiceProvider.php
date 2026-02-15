@@ -12,6 +12,6 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->prefix('orders')
             ->name('orders.')
-            ->group(__DIR__ . '/../routes.php');
+            ->group(__DIR__.'/../routes.php');
     }
 }
