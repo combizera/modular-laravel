@@ -35,9 +35,13 @@ it('should be able to sucessfull create a order', function () {
             ],
         ]));
 
-    $response->assertStatus(201);
-
     $order = Order::query()->latest('id')->first();
+
+    $response
+        ->assertJson([
+            'order_url' => $order->url()
+        ])
+        ->assertStatus(201);
 
     // Order
     $this->assertTrue($order->user->is($user));

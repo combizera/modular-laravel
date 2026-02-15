@@ -45,8 +45,6 @@ namespace Modules\Order\Models{
  * @property int $user_id
  * @property int $total_in_cents
  * @property string $status
- * @property string $payment_gateway
- * @property string $payment_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Order\Models\OrderLine> $lines
@@ -58,8 +56,6 @@ namespace Modules\Order\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Order query()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Order whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Order whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Order wherePaymentGateway($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Order wherePaymentId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Order whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Order whereTotalInCents($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Order whereUpdatedAt($value)
@@ -92,11 +88,41 @@ namespace Modules\Order\Models{
 	class OrderLine extends \Eloquent {}
 }
 
+namespace Modules\Payment\Models{
+/**
+ * @property int $id
+ * @property int $order_id
+ * @property int $user_id
+ * @property int $total_in_cents
+ * @property string $status
+ * @property string $payment_gateway
+ * @property string $payment_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Modules\Order\Models\Order $order
+ * @property-read \App\Models\User $user
+ * @method static \Modules\Payment\Database\Factories\PaymentFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Payment newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Payment newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Payment query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Payment whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Payment whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Payment whereOrderId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Payment wherePaymentGateway($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Payment wherePaymentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Payment whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Payment whereTotalInCents($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Payment whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Payment whereUserId($value)
+ */
+	class Payment extends \Eloquent {}
+}
+
 namespace Modules\Product\Models{
 /**
  * @property int $id
  * @property string $name
- * @property int $price
+ * @property int $price_in_cents
  * @property int $stock
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -107,7 +133,7 @@ namespace Modules\Product\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Product wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Product wherePriceInCents($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereStock($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Product whereUpdatedAt($value)
  */
