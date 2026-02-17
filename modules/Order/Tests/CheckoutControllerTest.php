@@ -88,4 +88,6 @@ it('should not be able to create a order with invalid payment token', function (
 
     $response->assertStatus(422)
         ->assertJsonValidationErrors(['payment_token']);
+
+    $this->assertEquals(0, Order::query()->count());
 });
