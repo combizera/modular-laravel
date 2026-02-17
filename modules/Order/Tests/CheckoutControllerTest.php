@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Sequence;
+use Modules\Order\Enums\OrderStatus;
 use Modules\Order\Models\Order;
 use Modules\Order\Models\OrderLine;
 use Modules\Payment\PayBuddy;
@@ -46,7 +47,7 @@ it('should be able to sucessfull create a order', function () {
     // Order
     $this->assertTrue($order->user->is($user));
     $this->assertEquals(60000, $order->total_in_cents);
-    $this->assertEquals('completed', $order->status);
+    $this->assertEquals(OrderStatus::COMPLETED, $order->status);
 
     // Payment
     $payment = $order->lastPayment;
