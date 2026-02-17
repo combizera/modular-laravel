@@ -4,6 +4,7 @@ namespace Modules\Order\Database\Factories;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\Order\Enums\OrderStatus;
 use Modules\Order\Models\Order;
 
 /**
@@ -19,9 +20,9 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory(),
-            'status' => $this->faker->randomElement(['pending', 'paid', 'shipped', 'delivered', 'cancelled']),
-            'total_in_cents' => $this->faker->numberBetween(1000, 100000),
+            'user_id'           => User::factory(),
+            'status'            => $this->faker->randomElement(OrderStatus::class)->value,
+            'total_in_cents'    => $this->faker->numberBetween(1000, 100000),
         ];
     }
 }
